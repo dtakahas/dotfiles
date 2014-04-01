@@ -1,3 +1,5 @@
 Source Tree
 Sequel Pro
 Dash
+TotalTerminal
+Alfred
