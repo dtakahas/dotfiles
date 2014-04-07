@@ -38,6 +38,8 @@ alias hide_hidden_files="defaults write com.apple.finder AppleShowAllFiles FALSE
 alias gg="~/bin/gg.sh"
 alias stop_sql="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias start_sql="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+alias stop_redis="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias start_redis="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
 alias pretty="~/xml/pretty_xml.rb"
 ##
 # Your previous /Users/dave/.bash_profile file was backed up as /Users/dave/.bash_profile.macports-saved_2013-06-26_at_11:49:28
