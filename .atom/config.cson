@@ -1,7 +1,7 @@
 'exception-reporting':
   'userId': '36d15796-2e0c-02a8-94a7-132e8f474ab7'
 'release-notes':
-  'viewedVersion': '0.81.0'
+  'viewedVersion': '0.84.0'
 'welcome':
   'showOnStartup': false
 'metrics':
@@ -18,6 +18,7 @@
     'tab': '⇥'
   'softWrap': true
   'showIndentGuide': true
+  'fontFamily': 'consolas'
 'core':
   'themes': [
     'atom-dark-ui'
