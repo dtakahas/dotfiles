@@ -125,3 +125,40 @@ function rspecl
 {
     tailrun log/test.log rspec "$@"
 }
+function git_recent_branches()
+{
+    if [[ $# -lt 1 ]]; then
+        local count=10
+    else
+        local count=$1
+    fi
+    gco $(git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' --color | head -n $count | fzf --height 20%)
+}
+
+function generate_files()
+{
+    if [[ $# -ne 4 ]]; then
+        echo 'usage: generate_files { png | jpg | txt | bin } <count> <size> <directory>' >&2
+        return 1
+    fi
+
+    local ext=$1; shift
+    local count=$1; shift
+    local size=$1; shift
+    local dir=$1; shift
+
+    mkdir -p "$dir"
+
+    local i=0 fn
+    while [[ $i -lt $count ]]; do
+        (( ++i ))
+        fn="$dir/file$(printf %03d $i).${ext}"
+        printf '\r%s' "$fn"
+        case "$ext" in
+            png|jpg) convert -size "$size" plasma:fractal "$fn" || return ;;
+            txt) return 22 ;;
+            *) dd if=/dev/urandom of="$fn" bs=1 count="$size" >/dev/null 2>&1 || return ;;
+        esac
+    done
+    echo
+}
